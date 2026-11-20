@@ -1,0 +1,34 @@
+{
+  "name": "kidus-bingo",
+  "version": "1.0.0",
+  "description": "Kidus Bingo offline house game",
+  "main": "electron-main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "test": "node --test",
+    "desktop": "electron .",
+    "dist:win": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^37.2.6",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.kidus.bingo",
+    "productName": "Kidus Bingo",
+    "asar": true,
+    "files": [
+      "electron-main.js",
+      "offline-game.js",
+      "audio/**/*",
+      "public/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": ["portable"],
+      "icon": "build/icon.ico",
+      "artifactName": "kidus.${ext}"
+    }
+  }
+}

@@ -1,0 +1,153 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+.bingo-canvas {
+  background-color: #fff2f8;
+  background-image:
+    radial-gradient(ellipse 85% 42% at 50% 0%, rgba(244, 114, 182, 0.22), transparent 65%),
+    radial-gradient(ellipse 90% 45% at 50% 100%, rgba(168, 85, 247, 0.22), transparent 65%),
+    linear-gradient(180deg, #fff3f9 0%, #fce7f3 50%, #f5dbfb 100%);
+}
+
+html.dark .bingo-canvas {
+  background-color: #080216;
+  background-image:
+    radial-gradient(ellipse 90% 45% at 50% 0%, rgba(168, 85, 247, 0.34), transparent 60%),
+    radial-gradient(ellipse 85% 45% at 50% 100%, rgba(217, 70, 239, 0.24), transparent 60%),
+    radial-gradient(circle at 18% 28%, rgba(139, 92, 246, 0.16), transparent 40%),
+    radial-gradient(circle at 82% 24%, rgba(236, 72, 153, 0.14), transparent 40%),
+    linear-gradient(180deg, #090318 0%, #100426 55%, #070213 100%);
+}
+
+.pb-safe {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+}
+
+.hall-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.hall-scroll::-webkit-scrollbar-track {
+  background: rgba(217, 70, 239, 0.08);
+}
+
+.hall-scroll::-webkit-scrollbar-thumb {
+  background: rgba(217, 70, 239, 0.45);
+  border-radius: 9999px;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(24px, 108vh, 0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flower-float {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(0deg) scale(0.92);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.92;
+  }
+  50% {
+    transform: translate3d(-18px, 50vh, 0) rotate(180deg) scale(1.06);
+  }
+  90% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(16px, 108vh, 0) rotate(360deg) scale(0.95);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkle-rise {
+  0% {
+    transform: translate3d(0, 105vh, 0) scale(0.6);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.95;
+  }
+  80% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(-14px, -10vh, 0) scale(1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes holo-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-snowfall {
+  animation-name: snowfall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.animate-flower-float {
+  animation-name: flower-float;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.animate-sparkle-rise {
+  animation-name: sparkle-rise;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.platinum-holo {
+  background-image: linear-gradient(
+    115deg,
+    #f0abfc 0%,
+    #38bdf8 22%,
+    #fde047 45%,
+    #f472b6 68%,
+    #a855f7 85%,
+    #67e8f9 100%
+  );
+  background-size: 260% 260%;
+  animation: holo-shimmer 2.8s ease infinite;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "ChekiGuard — Cloudflare Telegram Receipt Bot Studio",
+  "description": "Configure, test, and export a Cloudflare Workers Telegram receipt verification bot powered by Cheki.et with multi-bot management, group rules, settlement account matching, and anti-fraud guardrails.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
